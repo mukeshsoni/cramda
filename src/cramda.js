@@ -163,7 +163,28 @@ export const startsWith = curry((prefix, str) => {
   }
 })
 
+export function first(list) {
+  return list[0]
+}
+
+export const head = first
+
+export function tail(list) {
+  return list.slice(1)
+}
+
+export const any = curry((pred, list) => {
+  if (list && list.some && typeof list.some === "function") {
+    return list.some(pred)
+  } else {
+    return list.reduce((acc, item) => {
+      return acc || pred(item)
+    }, false)
+  }
+})
+
 const R = {
+  any,
   curry,
   assoc,
   assocPath,
@@ -182,6 +203,9 @@ const R = {
   without,
   update,
   printIt,
+  first,
+  head,
+  tail,
   startsWith
 }
 
