@@ -155,6 +155,14 @@ export const without = curry(
   }
 )
 
+export const startsWith = curry((prefix, str) => {
+  if (!str) {
+    return false
+  } else {
+    return str.indexOf(prefix) === 0
+  }
+})
+
 const R = {
   curry,
   assoc,
@@ -173,7 +181,8 @@ const R = {
   find,
   without,
   update,
-  printIt
+  printIt,
+  startsWith
 }
 
 export default R
