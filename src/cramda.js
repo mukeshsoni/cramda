@@ -183,6 +183,23 @@ export const any = curry((pred, list) => {
   }
 })
 
+export const findIndex = curry((finder, list) => {
+  if (!list) {
+    return -1
+  }
+
+  let itemIndex = -1
+
+  for (let i = 0; i < list.length; i++) {
+    if (finder(list[i])) {
+      itemIndex = i
+      break
+    }
+  }
+
+  return itemIndex
+})
+
 const R = {
   any,
   curry,
@@ -206,7 +223,8 @@ const R = {
   first,
   head,
   tail,
-  startsWith
+  startsWith,
+  findIndex
 }
 
 export default R
