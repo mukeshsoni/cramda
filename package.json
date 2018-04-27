@@ -7,7 +7,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "flow": "flow",
-    "build": "babel src/cramda.js -o lib/cramda.js"
+    "build": "rimraf lib && mkdir lib && babel src/cramda.js -o lib/cramda.js"
   },
   "author": "",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "flow-bin": "^0.70.0",
-    "jest": "^22.4.3"
+    "jest": "^22.4.3",
+    "rimraf": "^2.6.2"
   }
 }
